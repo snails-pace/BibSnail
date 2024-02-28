@@ -21,8 +21,9 @@ from backend_api import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'books', views.BookView, 'book')
-router.register(r'profiles', views.ProfileView, 'profile')
+# router.register(r'books', views.BookView, 'book')
+# router.register(r'profiles', views.ProfileView, 'profile')
+
 
 admin.site.site_header = "BibSnail Admin"
 
@@ -31,5 +32,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('hello', views.HelloWorld.as_view(), name='hello')
 ]
