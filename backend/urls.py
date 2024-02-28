@@ -22,6 +22,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'books', views.BookView, 'book')
+router.register(r'profiles', views.ProfileView, 'profile')
 
 admin.site.site_header = "BibSnail Admin"
 
