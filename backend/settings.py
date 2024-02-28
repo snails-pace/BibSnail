@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'bibsnail'
 ]
 
+# https://stackoverflow.com/questions/69866032/fields-e304-reverse-accessor-clashes-in-django-for-multiple-custom-user-model
+AUTH_USER_MODEL = 'bibsnail.User'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

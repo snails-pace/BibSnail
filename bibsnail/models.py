@@ -1,19 +1,18 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext as _
 
 # Create your models here.
-class User(models.Model):
+class User(AbstractUser):
     """ User model with username as string representation
     Fields email and username have to be unique
     """
-    username = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(max_length=254, unique=True)
-    REQUIRED_FIELDS = ['username']
+    # username = models.CharField(max_length=50, unique=True)
+    # email = models.EmailField(max_length=254, unique=True)
     
     def __str__(self):
         return self.username
     
-    class Meta:
-        ordering = ['username']
     
 
 class Profile(models.Model):
