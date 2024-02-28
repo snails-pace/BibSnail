@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from bibsnail.models import Book, Profile, User
+from backend_api.models import Book, Profile, User
 
 #Register your models here.
 @admin.register(User)

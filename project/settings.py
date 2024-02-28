@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,11 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'bibsnail'
+    'backend_api', 
+    'frontend'
 ]
 
 # https://stackoverflow.com/questions/69866032/fields-e304-reverse-accessor-clashes-in-django-for-multiple-custom-user-model
-AUTH_USER_MODEL = 'bibsnail.User'
+AUTH_USER_MODEL = 'backend_api.User'
 
 
 MIDDLEWARE = [
@@ -57,7 +59,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware'
 ]
 
-ROOT_URLCONF = 'backend.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
@@ -115,6 +117,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+# Locate static files from React
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/build/static')
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
