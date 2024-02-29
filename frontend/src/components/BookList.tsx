@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getBookList } from "../api";
+import { BookListResource } from "../Resources";
 
 export default function BookList() {
-    const [bookList, setBookList] = useState<any[] | null>();
+    const [bookList, setBookList] = useState<BookListResource | null>();
 
     async function load() {
         try {
