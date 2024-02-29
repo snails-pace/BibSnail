@@ -15,12 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 import debug_toolbar
 from backend_api import views
 from rest_framework import routers
 
-router = routers.DefaultRouter()
+# router = routers.DefaultRouter()
 # router.register(r'books', views.BookView, 'book')
 # router.register(r'profiles', views.ProfileView, 'profile')
 
@@ -31,7 +31,8 @@ admin.site.site_header = "BibSnail Admin"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('api/', include(router.urls)),
-    path('hello', views.HelloWorld.as_view(), name='hello')
+    re_path(r'^api/books/$', views.book_list),
+    re_path(r'^api/books/([0-9])$', views.book_detail)
+    # path('accounts/', include('django.contrib.auth.urls')),
+    # path('api/', include(router.urls)),
 ]
