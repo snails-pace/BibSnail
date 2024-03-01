@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .serializers import *
 from .models import Book, Profile
 from rest_framework.response import Response
@@ -16,15 +16,24 @@ from rest_framework import status
 #     serializer_class = BookSerializer
 #     queryset = Book.objects.all()
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def book_list(request):
+    """
+    Book list endpoint
+    GET: get all books and returns the serialized list 
+    (native Python datatype, that can be transformed to JSON)
+    """
     if request.method == 'GET':
         books = Book.objects.all()
-        
         serializer = BookSerializer(books, context={'request': request}, many=True)
+        
+        
         return Response(serializer.data) 
     
     
-@api_view(['PUT', 'DELETE'])
+@api_view(['GET'])
 def book_detail(request, pk):
-    pass
+    book = get_object_or_404(Book, id=pk)
+    serializer = BookSerializer(book, data=request.data, context={'request': request})
+    
+    return Response(serializer.data)
