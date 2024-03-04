@@ -32,8 +32,8 @@ def book_list(request):
     
     
 @api_view(['GET'])
-def book_detail(request, pk):
+def book_detail_view(request, pk):
     book = get_object_or_404(Book, id=pk)
-    serializer = BookSerializer(book, data=request.data, context={'request': request})
+    serializer = BookSerializer(book, context={'request': request, 'pk': pk})
     
     return Response(serializer.data)

@@ -1,3 +1,4 @@
+import BookDetail from './components/BookDetail';
 import BookList from './components/BookList';
 import { Route, Routes } from 'react-router-dom';
 
@@ -7,7 +8,8 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <Routes>
-          <Route path="*" element={<BookList />} />
+          <Route path="/books" element={<BookList />} />
+          <Route path="/book/:pk" element={<BookDetail />} />
         </Routes>
       </header>
       
