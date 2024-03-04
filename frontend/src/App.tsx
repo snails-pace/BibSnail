@@ -1,13 +1,14 @@
-import React from 'react';
-import './App.css';
 import BookList from './components/BookList';
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <BookList />
+        <Routes>
+          <Route path="*" element={<BookList />} />
+        </Routes>
       </header>
       
     </div>
