@@ -31,8 +31,8 @@ admin.site.site_header = "BibSnail Admin"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
-    path('api/books/', views.book_list),
-    path('api/book/<str:pk>/', views.book_detail_view)
+    path('api/books/', views.book_list_view, name="book_list"),
+    path('api/book/<int:pk>/', views.book_detail_view, name="book_detail")
     # path('accounts/', include('django.contrib.auth.urls')),
     # path('api/', include(router.urls)),
 ]

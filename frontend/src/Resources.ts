@@ -1,20 +1,20 @@
 
 
 export type UserResource = {
-    id?: string
+    id?: number
     username: string
     password?: string
     email: string
 }
 
 export type ProfileResource = {
-    id?: string
+    id?: number
     user: string
     nickname: string
 }
 
 export type BookResource = {
-    id?: string
+    id?: number
     title: string
     author?: string
     publisher?: string 

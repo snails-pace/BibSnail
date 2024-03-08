@@ -8,7 +8,7 @@ function App() {
     <div className='App'>
       <header className='App-header'>
         <Routes>
-          <Route path="/books" element={<BookList />} />
+          <Route path="*" element={<BookList />} />
           <Route path="/book/:pk" element={<BookDetail />} />
         </Routes>
       </header>

@@ -17,7 +17,7 @@ from rest_framework import status
 #     queryset = Book.objects.all()
 
 @api_view(['GET'])
-def book_list(request):
+def book_list_view(request):
     """
     Book list endpoint
     GET: get all books and returns the serialized list 
