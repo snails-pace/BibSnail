@@ -4,6 +4,10 @@ import { useParams } from "react-router-dom";
 import { API_URL } from "../constants";
 import axios from "axios";
 
+/**
+ * BookDetail is a JSX component which gets the book id as parameter in the url and gets the book from the backend_api.
+ * @returns a jsx element with a detailed overview over the book attributes.
+ */
 export default function BookDetail() {
     const [book, setBook] = React.useState<BookResource | null>();
 

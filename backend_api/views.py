@@ -31,9 +31,20 @@ def book_list_view(request):
         return Response(serializer.data) 
     
     
-@api_view(['GET'])
+@api_view(['GET', 'POST', 'DELETE'])
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, id=pk)
-    serializer = BookSerializer(book, context={'request': request, 'pk': pk})
+    if request.method == 'GET':
+        
+        serializer = BookSerializer(book, context={'request': request, 'pk': pk})
+        return Response(serializer.data)
     
-    return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = BookSerializer(book, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+    
