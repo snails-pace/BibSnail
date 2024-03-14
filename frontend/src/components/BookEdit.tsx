@@ -22,7 +22,7 @@ type Inputs = {
 
 export default function BookEdit() {
     
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, formState: {errors} } = useForm();
 
     const params = useParams();
     const bookId = params.pk;
@@ -58,7 +58,7 @@ export default function BookEdit() {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <div className='BookForm'>
+
                 <label htmlFor='title' >Title: </label>
                     <input 
                         {...register("title", {required: "A title is required."})}
@@ -66,9 +66,9 @@ export default function BookEdit() {
                         type="text" 
                         name='title'
                     />
-                    {/* {errors.title && (
+                    {errors.title && (
                         <p>{`${errors.title.message}`}</p>
-                    )} */}
+                    )}
                 
                 <label>Author:
                     <input 
@@ -135,7 +135,7 @@ export default function BookEdit() {
                     />
                 </label>
                 <button type='submit'>Submit</button>
-            </div>
+
         </form>
     )
 
