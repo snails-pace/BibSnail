@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BookResource } from "../Resources";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { API_URL } from "../constants";
 import axios from "axios";
 
@@ -33,6 +33,9 @@ export default function BookDetail() {
                 <p>{book.edition}</p>
                 <p>{book.location}</p>
                 <p>{book.borrowed_from}</p>
+                <Link to={`/book/${book.id}/edit/`}>
+                        <button>Edit</button>
+                </Link>
             </div>
         )
     }

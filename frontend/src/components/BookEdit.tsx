@@ -6,19 +6,6 @@ import { API_URL } from '../constants';
 import { useForm } from "react-hook-form";
 import type { FieldValues } from "react-hook-form";
 
-type Inputs = {
-    title: string
-    author: string
-    publisher: string
-    address: string
-    edition: number
-    year: Date
-    genre: string
-    owner: boolean
-    location: string
-    borrowed_from: string
-    comments: string
-}
 
 export default function BookEdit() {
     
@@ -64,78 +51,76 @@ export default function BookEdit() {
                         {...register("title", {required: "A title is required."})}
                         id='title'
                         type="text" 
-                        name='title'
                     />
                     {errors.title && (
                         <p>{`${errors.title.message}`}</p>
                     )}
                 
-                <label>Author:
+                <label htmlFor='author'>Author: </label>
                     <input 
                         {...register("author")}
                         type="text" 
-                    />
-                </label>
-                <label>Publisher:
+                        id='author'
+                    />            
+                <label htmlFor='publisher'>Publisher: </label>
                     <input 
                         {...register("publisher")}
                         type="text" 
+                        id='publisher'
                     />
-                </label>
-                <label>Address:
+                <label htmlFor='address'>Address: </label>
                     <input 
                         {...register("address")}
                         type="text"
-                    />
-                </label>
-                <label>Edition:
+                        id='address'
+                    /> 
+                <label htmlFor='edition'>Edition: </label>
                     <input 
                         {...register("edition", {
                             valueAsNumber: true
                         })}
                         type="number"
+                        id='edition'
                     />
-                </label>
-                <label>Year:
+                <label htmlFor='year'>Year: </label>
                     <input 
                         {...register("year")}
                         type="date"
+                        id='year'
                     />
-                </label>
-                <label>Genre:
+                <label htmlFor='genre'>Genre: </label>
                     <input 
                         {...register("genre")}
                         type="text" 
+                        id='genre'
                     />
-                </label>
-                <label>Owner:
+                <label htmlFor='owner'>Owner: </label>
                     <input 
                         {...register("owner", {
                             required: "Owner is required"
                         })}
                         type="text"
+                        id='owner'
                     />
-                </label>
-                <label>Location:
+                <label htmlFor='location'>Location: </label>
                     <input 
                         {...register("location")}
                         type="text"
+                        id='location'
                     />
-                </label>
-                <label>Borrowed from:
+                <label>Borrowed from: </label>
                     <input 
                         {...register("borrowed_from")}
                         type="text"
+                        id='borrowed_from'
                     />
-                </label>
-                <label>Comments:
+                <label htmlFor='comments'>Comments: </label>
                     <input 
                         {...register("comments")}
                         type="text"
+                        id='comments'
                     />
-                </label>
                 <button type='submit'>Submit</button>
-
         </form>
     )
 
