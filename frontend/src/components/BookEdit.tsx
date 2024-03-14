@@ -3,120 +3,140 @@ import { BookResource } from '../Resources';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../constants';
+import { useForm } from "react-hook-form";
+import type { FieldValues } from "react-hook-form";
+
+type Inputs = {
+    title: string
+    author: string
+    publisher: string
+    address: string
+    edition: number
+    year: Date
+    genre: string
+    owner: boolean
+    location: string
+    borrowed_from: string
+    comments: string
+}
 
 export default function BookEdit() {
-    const [book, setBook] = React.useState<BookResource | null>(null);
- //   const [data, setData] = React.useState({...book})
+    
+    const { register, handleSubmit, reset } = useForm();
+
     const params = useParams();
     const bookId = params.pk;
+
+    const [book, setBook] = React.useState<BookResource>();
+
 
     useEffect(() => {
         axios.get(`${API_URL}/book/${bookId}`).then((response) => {
             setBook(response.data);
- //           setData(response.data);
         }).catch(error => {
             console.error("An error occured", error);
         })
     }, [bookId]);
-
-
-    function handleSubmit(e: React.FormEvent) {
-        /**Prevents the default submit */
-        e.preventDefault();
-        /**Custom submit: sends data to database */
-        const formData = book;
-        axios.post(`${API_URL}/book/${bookId}/`, formData).then(res => {
-            console.log(res.status, res.data);
-        });
-        }
-
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-        if (!e.target.value || !book) return;
-        const value: string = e.target.value as string;
-        const newBook: BookResource = {...book};
-        switch (e.target.name) {
-            case "title": 
-                newBook.title = value;
-                break;
-            case "author":
-                newBook.author = value;
-                break;
-            case "publisher":
-                newBook.publisher = value;
-                break;
-            case "address":
-                newBook.address = value;
-                break;
-            case "edition":
-                newBook.edition = Number(value);
-                break;
-            case "year":
-                newBook.year = new Date(value);
-                break;
-            case "genre":
-                newBook.genre = value;
-                break;
-            case "owner":
-                newBook.owner = Boolean(value);
-                break;
-            case "location":
-                newBook.location = value;
-                break;
-            case "borrowed_from":
-                newBook.borrowed_from = value;
-                break;
-            case "comments":
-                newBook.comments = value;
-                break;
-            default:
-                new Error("BookResource doesn't have that field!")
-        }
-        setBook(newBook);
-    }
-
     
+    useEffect(() => {
+        reset(book);
+    }, [book]);
+
     if (!book) {
-        return <p>Loading...</p>
-    } else {
-        return (
-            <form onSubmit={handleSubmit}>
-                <div className='BookForm'>
-                    <label>Title:
-                        <input type="text" name='title' value={book.title} onChange={handleChange} />
-                    </label>
-                    <label>Author:
-                        <input type="text" name='author' value={book.author} onChange={handleChange} />
-                    </label>
-                    <label>Publisher:
-                        <input type="text" name='publisher' value={book.publisher} onChange={handleChange} />
-                    </label>
-                    <label>Address:
-                        <input type="text" name='address' value={book.address} onChange={handleChange} />
-                    </label>
-                    <label>Edition:
-                        <input type="number" name='edition' value={book.edition} onChange={handleChange} />
-                    </label>
-                    <label>Year:
-                        <input type="date" name='year' value={book.year?.toString()} onChange={handleChange} />
-                    </label>
-                    <label>Genre:
-                        <input type="text" name='genre' value={book.genre} onChange={handleChange} />
-                    </label>
-                    <label>Owner:
-                        <input type="text" name='owner' value={book.owner.toString()} onChange={handleChange} />
-                    </label>
-                    <label>Location:
-                        <input type="text" name='location' value={book.location} onChange={handleChange} />
-                    </label>
-                    <label>Borrowed from:
-                        <input type="text" name='borrowed_from' value={book.borrowed_from} onChange={handleChange} />
-                    </label>
-                    <label>Comments:
-                        <input type="text" name='comments' value={book.comments} onChange={handleChange} />
-                    </label>
-                    <button type='submit'>Submit</button>
-                </div>
-            </form>
-        )
+        new Error("Book doesn't exist")
+    } 
+
+
+    const onSubmit = (data: FieldValues) => {
+        axios.post(`${API_URL}/book/${bookId}`, data).then((response) => {
+            console.log(response);
+        }).catch(error => {
+            console.error("An error occured", error);
+        })
     }
+
+
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <div className='BookForm'>
+                <label htmlFor='title' >Title: </label>
+                    <input 
+                        {...register("title", {required: "A title is required."})}
+                        id='title'
+                        type="text" 
+                        name='title'
+                    />
+                    {/* {errors.title && (
+                        <p>{`${errors.title.message}`}</p>
+                    )} */}
+                
+                <label>Author:
+                    <input 
+                        {...register("author")}
+                        type="text" 
+                    />
+                </label>
+                <label>Publisher:
+                    <input 
+                        {...register("publisher")}
+                        type="text" 
+                    />
+                </label>
+                <label>Address:
+                    <input 
+                        {...register("address")}
+                        type="text"
+                    />
+                </label>
+                <label>Edition:
+                    <input 
+                        {...register("edition", {
+                            valueAsNumber: true
+                        })}
+                        type="number"
+                    />
+                </label>
+                <label>Year:
+                    <input 
+                        {...register("year")}
+                        type="date"
+                    />
+                </label>
+                <label>Genre:
+                    <input 
+                        {...register("genre")}
+                        type="text" 
+                    />
+                </label>
+                <label>Owner:
+                    <input 
+                        {...register("owner", {
+                            required: "Owner is required"
+                        })}
+                        type="text"
+                    />
+                </label>
+                <label>Location:
+                    <input 
+                        {...register("location")}
+                        type="text"
+                    />
+                </label>
+                <label>Borrowed from:
+                    <input 
+                        {...register("borrowed_from")}
+                        type="text"
+                    />
+                </label>
+                <label>Comments:
+                    <input 
+                        {...register("comments")}
+                        type="text"
+                    />
+                </label>
+                <button type='submit'>Submit</button>
+            </div>
+        </form>
+    )
+
 }
