@@ -48,7 +48,7 @@ export default function BookEdit() {
 
 
     const onSubmit = (data: FieldValues) => {
-        axios.post(`${API_URL}/book/${bookId}`, data).then((response) => {
+        axios.post(`${API_URL}/book/${bookId}/`, data).then((response) => {
             console.log(response);
         }).catch(error => {
             console.error("An error occured", error);
