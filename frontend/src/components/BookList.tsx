@@ -20,12 +20,12 @@ export default function BookList() {
     } else {
         return (
             <>
-            <h1>Book List</h1>
+            <h1>All Book</h1>
             <ul className="books">
                 {bookList!.map( (book) => (
                     
-                        <li key={book.id} className="book">
-                            <Link to={`/book/${book.id}`}>
+                        <li key={book.id} className="book" id="booklist-book">
+                            <Link to={`/book/${book.id}`} aria-label={`Book details on ${book.title}`}>
                                 <h2>{book.title} ({book.year})</h2>
                                 <p>by {book.author} </p>
                             </Link>

@@ -26,16 +26,19 @@ export default function BookDetail() {
         return <p>Loading...</p>
     } else {
         return (
-            <div>
-                <h1>{book.title}</h1>
-                <p>{book.author}</p>
-                <p>{book.year?.toString()}</p>
-                <p>{book.edition}</p>
-                <p>{book.location}</p>
-                <p>{book.borrowed_from}</p>
-                <Link to={`/book/${book.id}/edit/`}>
-                        <button>Edit</button>
-                </Link>
+            <div className="bookdetail">
+                <div className="book" id="bookdetail-book">
+                    <Link to={`/book/${book.id}/edit/`}>
+                            <button>Edit Book</button>
+                    </Link>
+                    <h1>{book.title}</h1>
+                    <p>{book.author}</p>
+                    <p>{book.year?.toString()}</p>
+                    <p>{book.edition}</p>
+                    <p>{book.location}</p>
+                    <p>{book.borrowed_from}</p>
+                    
+                </div>
             </div>
         )
     }
