@@ -55,7 +55,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=254, blank=True)
     address = models.CharField(max_length=254, blank=True)
     edition = models.PositiveIntegerField(null=True, blank=True)
-    year = models.DateField(null=True, blank=True)
+    year = models.PositiveIntegerField(null=True, blank=True)
     genre = models.CharField(max_length=254, default="other")
     owner = models.BooleanField()
     location = models.CharField(max_length=254, default="home")

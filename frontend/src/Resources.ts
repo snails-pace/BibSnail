@@ -20,7 +20,7 @@ export type BookResource = {
     publisher?: string 
     address?: string
     edition?: number
-    year?: Date 
+    year?: number 
     genre?: string
     owner: boolean
     location?: string

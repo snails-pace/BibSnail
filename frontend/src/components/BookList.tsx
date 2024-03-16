@@ -18,16 +18,21 @@ export default function BookList() {
     if(!bookList) {
         return <p>Loading...</p>
     } else {
-        return (<ul>
-            {bookList!.map( (book) => (
-                <li key={book.id}>
-                    <p>{book.title}</p>
-                    <p>by {book.author} Year: {book.year?.toString()}</p>
-                    <Link to={`/book/${book.id}`}>
-                        <button>Book Details</button>
-                    </Link>
-                </li>
-            ))}
-        </ul> )
+        return (
+            <>
+            <h1>Book List</h1>
+            <ul className="books">
+                {bookList!.map( (book) => (
+                    
+                        <li key={book.id} className="book">
+                            <Link to={`/book/${book.id}`}>
+                                <h2>{book.title} ({book.year})</h2>
+                                <p>by {book.author} </p>
+                            </Link>
+                        </li>   
+                ))}
+            </ul>
+            </> 
+        )
     }
 }
