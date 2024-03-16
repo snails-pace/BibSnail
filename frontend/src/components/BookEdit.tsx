@@ -44,7 +44,7 @@ export default function BookEdit() {
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="books" onSubmit={handleSubmit(onSubmit)}>
 
                 <label htmlFor='title' >Title: </label>
                     <input 

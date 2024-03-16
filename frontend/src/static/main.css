@@ -24,7 +24,7 @@ main h1 {
 /* Page banner */
 #banner {
     text-align: center;
-    padding: 90px;
+
     color: black;
     background-color: var(--banner-color);
     background-image: url("./img/english-library.jpg");
@@ -38,8 +38,9 @@ main h1 {
 
 #banner h1 {
     background-color: rgba(242, 230, 216, 0.8);
-    font-size: 3rem;
-    width: 15rem;
+    font-size: 5rem;
+    padding: 0 1rem;
+    margin: 5rem 0;
     border-radius: 12px;
     border-style: solid;
     color: var(--banner-color);
@@ -110,9 +111,7 @@ nav {
 
 #bookdetail {
     padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    height: 100%;
+    display: flex;
     text-decoration: none;
     color: black;
     grid-column: 1 / 4;
@@ -126,18 +125,19 @@ nav {
 #bookdetail a {
     padding: 0;
     text-align: end;
-    grid-column: 2;
 }
 
 #bookdetail-cover {
-    grid-row: 1 / 3;
-    grid-column: 1;
-    place-self: center;
-    height: 50rem;
+    width: 30rem;
     
 }
 
 #bookdetail-header {
     display: flex;
     justify-content: space-between;
+}
+
+#bookdetail-text {
+    width: 100%;
+    margin-left: 2rem;
 }

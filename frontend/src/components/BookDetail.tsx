@@ -30,18 +30,18 @@ export default function BookDetail() {
             <div className="books">
                 <div className="book" id="bookdetail">
                     <img id="bookdetail-cover" alt={`Cover of ${book.title}`} src={cover} />
-                    <div aria-label="Book details.">
-                    <div id="bookdetail-header">
-                        <h1>{book.title}</h1>
-                        <Link to={`/book/${book.id}/edit/`}>
-                                <button>Edit Book</button>
-                        </Link>
-                    </div>
-                    <p>{book.author}</p>
-                    <p>{book.year?.toString()}</p>
-                    <p>{book.edition}</p>
-                    <p>{book.location}</p>
-                    <p>{book.borrowed_from}</p>
+                    <div aria-label="Book details." id="bookdetail-text">
+                        <div id="bookdetail-header">
+                            <h1>{book.title}</h1>
+                            <Link to={`/book/${book.id}/edit/`}>
+                                    <button>Edit Book</button>
+                            </Link>
+                        </div>
+                        <p>{book.author}</p>
+                        <p>{book.year?.toString()}</p>
+                        <p>{book.edition}</p>
+                        <p>{book.location}</p>
+                        <p>{book.borrowed_from}</p>
                     </div>
                     
                     
