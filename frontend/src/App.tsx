@@ -2,7 +2,6 @@ import BookDetail from './components/BookDetail';
 import BookEdit from './components/BookEdit';
 import BookList from './components/BookList';
 import { Route, Routes } from 'react-router-dom';
-import banner from './static/img/english-library2.jpg';
 
 
 function App() {
