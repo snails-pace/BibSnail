@@ -1,5 +1,5 @@
 :root {
-    --card-color: #e6d0a3;
+    --card-color: #f2e6d8;
     --banner-color: #352b19;
 }
 
@@ -24,11 +24,27 @@ main h1 {
 /* Page banner */
 #banner {
     text-align: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 90px;
+    color: black;
     background-color: var(--banner-color);
-    color: white;
+    background-image: url("./img/english-library.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
+
+#banner h1 {
+    background-color: rgba(242, 230, 216, 0.8);
+    font-size: 3rem;
+    width: 15rem;
+    border-radius: 12px;
+    border-style: solid;
+    color: var(--banner-color);
+}
+
 
 /* Nav-Bar */
 nav {
@@ -86,6 +102,6 @@ nav {
 }
 
 .book:hover {
-    filter: brightness(108%);
+    filter: brightness(105%);
     transform: scale(1.05);
 }

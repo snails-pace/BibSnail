@@ -2,13 +2,16 @@ import BookDetail from './components/BookDetail';
 import BookEdit from './components/BookEdit';
 import BookList from './components/BookList';
 import { Route, Routes } from 'react-router-dom';
+import banner from './static/img/english-library2.jpg';
 
 
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 id='banner'>BibSnail</h1>
+        <div id='banner'>
+          <h1>BibSnail</h1>
+        </div>
         <nav>
           <ul className='menu'>
             <li>All Books</li>
