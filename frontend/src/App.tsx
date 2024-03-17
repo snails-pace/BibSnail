@@ -1,7 +1,7 @@
 import BookDetail from './components/BookDetail';
 import BookEdit from './components/BookEdit';
 import BookList from './components/BookList';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
         </div>
         <nav>
           <ul className='menu'>
-            <li>All Books</li>
-            <li>My Books</li>
-            <li>Account</li>
+            <li><Link to={`*`} >All Books</Link></li>
+            <li><Link to={`*`} >My Books</Link></li>
+            <li><Link to={`*`} >Account</Link></li>
           </ul>
         </nav>  
       </header>

@@ -44,82 +44,81 @@ export default function BookEdit() {
 
 
     return (
-        <form className="books" onSubmit={handleSubmit(onSubmit)}>
+        <form className="books book-form" onSubmit={handleSubmit(onSubmit)}>
 
                 <label htmlFor='title' >Title: </label>
-                    <input 
-                        {...register("title", {required: "A title is required."})}
-                        id='title'
-                        type="text" 
-                    />
-                    {errors.title && (
-                        <p>{`${errors.title.message}`}</p>
-                    )}
-                
+                <input 
+                    {...register("title", {required: "A title is required."})}
+                    id='title'
+                    type="text" 
+                />
+                {errors.title && (
+                    <p>{`${errors.title.message}`}</p>
+                )}
                 <label htmlFor='author'>Author: </label>
-                    <input 
-                        {...register("author")}
-                        type="text" 
-                        id='author'
-                    />            
+                <input 
+                    {...register("author")}
+                    type="text" 
+                    id='author'
+                />            
                 <label htmlFor='publisher'>Publisher: </label>
-                    <input 
-                        {...register("publisher")}
-                        type="text" 
-                        id='publisher'
-                    />
+                <input 
+                    {...register("publisher")}
+                    type="text" 
+                    id='publisher'
+                />
                 <label htmlFor='address'>Address: </label>
-                    <input 
-                        {...register("address")}
-                        type="text"
-                        id='address'
-                    /> 
+                <input 
+                    {...register("address")}
+                    type="text"
+                    id='address'
+                /> 
                 <label htmlFor='edition'>Edition: </label>
-                    <input 
-                        {...register("edition", {
-                            valueAsNumber: true
-                        })}
-                        type="number"
-                        id='edition'
-                    />
+                <input 
+                    {...register("edition", {
+                        valueAsNumber: true
+                    })}
+                    type="number"
+                    id='edition'
+                />
                 <label htmlFor='year'>Year: </label>
-                    <input 
-                        {...register("year")}
-                        type="date"
-                        id='year'
-                    />
+                <input 
+                    {...register("year")}
+                    type="number"
+                    id='year'
+                />
                 <label htmlFor='genre'>Genre: </label>
-                    <input 
-                        {...register("genre")}
-                        type="text" 
-                        id='genre'
-                    />
+                <input 
+                    {...register("genre")}
+                    type="text" 
+                    id='genre'
+                />
                 <label htmlFor='owner'>Owner: </label>
-                    <input 
-                        {...register("owner", {
-                            required: "Owner is required"
-                        })}
-                        type="text"
-                        id='owner'
-                    />
+                <input 
+                    {...register("owner", {
+                        required: "Owner is required"
+                    })}
+                    type="text"
+                    id='owner'
+                />
                 <label htmlFor='location'>Location: </label>
-                    <input 
-                        {...register("location")}
-                        type="text"
-                        id='location'
-                    />
+                <input 
+                    {...register("location")}
+                    type="text"
+                    id='location'
+                />
                 <label>Borrowed from: </label>
-                    <input 
-                        {...register("borrowed_from")}
-                        type="text"
-                        id='borrowed_from'
-                    />
+                <input 
+                    {...register("borrowed_from")}
+                    type="text"
+                    id='borrowed_from'
+                />
                 <label htmlFor='comments'>Comments: </label>
-                    <input 
-                        {...register("comments")}
-                        type="text"
-                        id='comments'
-                    />
+                <input 
+                    {...register("comments")}
+                    type="text"
+                    id='comments'
+                />
                 <button type='submit'>Submit</button>
         </form>
     )

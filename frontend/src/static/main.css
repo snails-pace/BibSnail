@@ -60,10 +60,18 @@ nav {
 
 .menu li {
     list-style: none;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-right: 2rem;
+    margin: 1rem;
     font-size: large;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 0.2rem;
+}
+
+.menu a:hover {
+    text-decoration: underline;
 }
 
 /* BookList -> book list */
@@ -72,7 +80,7 @@ nav {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin: 0 auto;
-    padding: 4rem;
+    margin: 4rem;
     max-width: 100rem;
     
     
@@ -144,4 +152,11 @@ nav {
 
 #bookdetail-author {
     margin-bottom: 3rem;
+}
+
+/* Edit book form */
+
+.book-form label,
+.book-form input {
+    grid-column: 1 / 4;
 }
