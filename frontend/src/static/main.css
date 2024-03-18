@@ -1,7 +1,7 @@
 :root {
     --card-color: #f2e6d8;
     --banner-color: #433930;
-    --btn-color: #cbbca5;
+    --btn-color: #ddcfbd;
 }
 
 * {
@@ -20,6 +20,30 @@ main h1 {
     margin-top: 4rem;
     text-align: center;
 }
+
+/* Buttons */
+button {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border-style: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: auto;
+}
+.edit-btn {
+    background-color: var(--btn-color);
+
+}
+
+.submit-btn {
+    background-color: var(--btn-color);
+}
+
+button:hover {
+    filter: brightness(95%);
+    cursor: pointer;
+}
+
 
 
 /* Page banner */
@@ -133,21 +157,6 @@ nav {
     text-align: end;
 }
 
-.edit-btn {
-    padding: 0.5rem 0.7rem;
-    font-size: 1.2rem;
-    background-color: var(--btn-color);
-    border-radius: 1rem;
-    border-style: none;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-}
-
-.edit-btn:hover {
-    filter: brightness(105%);
-    cursor: pointer;
-}
-
 #bookdetail-cover {
     width: 30rem;
     
@@ -170,7 +179,21 @@ nav {
 
 /* Edit book form */
 
-.book-form label,
-.book-form input {
-    grid-column: 1 / 4;
+
+.bookform {
+    grid-column: 2 / 3;
+    display: grid;
+}
+
+.bookform label {
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+}
+
+.bookform input {
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+    border-style: solid;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
 }

@@ -44,8 +44,8 @@ export default function BookEdit() {
 
 
     return (
-        <form className="books book-form" onSubmit={handleSubmit(onSubmit)}>
-
+        <div className="bookform-container books">
+        <form className="bookform" onSubmit={handleSubmit(onSubmit)}>
                 <label htmlFor='title' >Title: </label>
                 <input 
                     {...register("title", {required: "A title is required."})}
@@ -119,9 +119,10 @@ export default function BookEdit() {
                     type="text"
                     id='comments'
                 />
-                <button type='submit'>Submit</button>
-                <Link to={`/book/${bookId}`}>Cancel</Link>
+                <button className='submit-btn' type='submit'>Submit</button>
+                <Link to={`/book/${bookId}`}><button type='button' className='cancel-btn'>Cancel</button></Link>
         </form>
+        </div>
     )
 
 }
