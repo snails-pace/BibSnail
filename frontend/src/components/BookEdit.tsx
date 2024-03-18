@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BookResource } from '../Resources';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../constants';
 import { useForm } from "react-hook-form";
@@ -120,6 +120,7 @@ export default function BookEdit() {
                     id='comments'
                 />
                 <button type='submit'>Submit</button>
+                <Link to={`/book/${bookId}`}>Cancel</Link>
         </form>
     )
 

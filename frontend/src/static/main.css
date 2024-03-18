@@ -1,6 +1,7 @@
 :root {
     --card-color: #f2e6d8;
-    --banner-color: #352b19;
+    --banner-color: #433930;
+    --btn-color: #cbbca5;
 }
 
 * {
@@ -79,11 +80,8 @@ nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin: 0 auto;
-    margin: 4rem;
+    margin: 4rem auto;
     max-width: 100rem;
-    
-    
 }
 
 .book {
@@ -135,6 +133,21 @@ nav {
     text-align: end;
 }
 
+.edit-btn {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    background-color: var(--btn-color);
+    border-radius: 1rem;
+    border-style: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.edit-btn:hover {
+    filter: brightness(105%);
+    cursor: pointer;
+}
+
 #bookdetail-cover {
     width: 30rem;
     
@@ -143,6 +156,7 @@ nav {
 #bookdetail-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 #bookdetail-text {

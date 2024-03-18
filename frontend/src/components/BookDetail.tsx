@@ -34,7 +34,7 @@ export default function BookDetail() {
                         <div id="bookdetail-header">
                             <h1>{book.title} ({book.year?.toString()})</h1>
                             <Link to={`/book/${book.id}/edit/`}>
-                                    <button>Edit Book</button>
+                                    <button type="button" className="edit-btn">Edit Book</button>
                             </Link>
                         </div>
                         <p id="bookdetail-author">{`by ${book.author}`}</p>
