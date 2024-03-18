@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BookResource } from '../Resources';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../constants';
 import { useForm } from "react-hook-form";
@@ -15,7 +15,7 @@ export default function BookEdit() {
     const bookId = params.pk;
 
     const [book, setBook] = React.useState<BookResource>();
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`${API_URL}/book/${bookId}`).then((response) => {
@@ -36,7 +36,7 @@ export default function BookEdit() {
 
     const onSubmit = (data: FieldValues) => {
         axios.post(`${API_URL}/book/${bookId}/`, data).then((response) => {
-            console.log(response);
+            navigate(`/book/${bookId}`);
         }).catch(error => {
             console.error("An error occured", error);
         })
