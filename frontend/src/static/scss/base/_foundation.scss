@@ -5,6 +5,22 @@
 *::after {
     box-sizing: border-box;
 }
+main {
+    line-height: 1.5em;
+}
+main {
+    background: var(--main-background);
+    line-height: 1.5em;
+
+    h1 {
+        line-height: 1.5em;
+    }
+}
+
+p {   
+    margin: 1em 0;
+}
+
 
 /* Images are never taller than parent element */
 img {

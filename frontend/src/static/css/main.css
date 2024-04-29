@@ -1,4 +1,5 @@
 :root {
+  --main-background: #ffffff;
   --card-color: #f2e6d8;
   --banner-color: #433930;
   --btn-color: #ddcfbd;
@@ -113,7 +114,7 @@ section {
 }
 
 body {
-  line-height: 1.5em;
+  line-height: 2.5em;
   background: var(--main-background);
 }
 
@@ -184,6 +185,22 @@ table caption {
   box-sizing: border-box;
 }
 
+main {
+  line-height: 1.5em;
+}
+
+main {
+  background: var(--main-background);
+  line-height: 1.5em;
+}
+main h1 {
+  line-height: 1.5em;
+}
+
+p {
+  margin: 1em 0;
+}
+
 /* Images are never taller than parent element */
 img {
   max-width: 100%;
@@ -246,9 +263,9 @@ button:hover {
 }
 #banner h1 {
   background-color: rgba(242, 230, 216, 0.8);
-  font-size: 5rem;
-  padding: 0 1rem;
-  margin: 5rem 0;
+  font-size: 4rem;
+  padding: 0.5em;
+  margin: 1em 0;
   border-radius: 12px;
   border-style: solid;
   color: var(--banner-color);
@@ -266,24 +283,27 @@ nav {
 }
 .menu li {
   list-style: none;
-  margin: 1rem;
+  margin: 0.5em;
   font-size: large;
 }
 .menu a {
   text-decoration: none;
   color: white;
-  padding: 0.2rem;
+  padding: 0.2em 0.6em;
+  display: block;
+  border-radius: 12px;
+  background: var(--banner-color);
 }
 .menu a:hover {
-  text-decoration: underline;
+  filter: brightness(140%);
 }
 
 .books {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 3em;
   margin: 4rem auto;
-  max-width: 100rem;
+  width: 70%;
 }
 
 .book {
@@ -294,6 +314,7 @@ nav {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   transition-duration: 0.2s;
   transition-property: filter, transform;
+  max-width: 25em;
 }
 .book a {
   padding: 2rem;

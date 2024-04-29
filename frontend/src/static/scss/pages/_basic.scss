@@ -1,6 +1,5 @@
 #banner {
     text-align: center;
-
     color: black;
     background-color: var(--banner-color);
     background-image: url("../img/english-library.jpg");
@@ -13,9 +12,9 @@
 
     h1 {
         background-color: rgba(242, 230, 216, 0.8);
-        font-size: 5rem;
-        padding: 0 1rem;
-        margin: 5rem 0;
+        font-size: 4rem;
+        padding: 0.5em;
+        margin: 1em 0;
         border-radius: 12px;
         border-style: solid;
         color: var(--banner-color);
@@ -34,17 +33,20 @@ nav {
 
     li {
         list-style: none;
-        margin: 1rem;
+        margin: 0.5em;
         font-size: large;
     }
 
     a {
         text-decoration: none;
         color: white;
-        padding: 0.2rem;
+        padding: 0.2em 0.6em;
+        display: block;
+        border-radius: 12px;
+        background: var(--banner-color);
 
         &:hover {
-            text-decoration: underline;
+            filter: brightness(140%);
         }
     }
 }
