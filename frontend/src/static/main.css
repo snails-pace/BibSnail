@@ -190,10 +190,15 @@ nav {
     font-size: 1rem;
 }
 
-.bookform input {
+.bookform input,
+.bookform textarea {
     margin-bottom: 1.5rem;
     border-radius: 1rem;
     border-style: solid;
     padding: 0.5rem 0.8rem;
     font-size: 0.9rem;
+}
+
+.bookform textarea {
+    height: 8rem;
 }

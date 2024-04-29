@@ -5,11 +5,12 @@ import axios from 'axios';
 import { API_URL } from '../constants';
 import { useForm } from "react-hook-form";
 import type { FieldValues } from "react-hook-form";
+import {DevTool} from '@hookform/devtools';
 
 
 export default function BookEdit() {
     
-    const { register, handleSubmit, reset, formState: {errors} } = useForm();
+    const { register, handleSubmit, reset, formState: {errors}, control } = useForm();
 
     const params = useParams();
     const bookId = params.pk;
@@ -45,7 +46,7 @@ export default function BookEdit() {
 
     return (
         <div className="bookform-container books">
-        <form className="bookform" onSubmit={handleSubmit(onSubmit)}>
+        <form className="bookform" id='bookeditform' onSubmit={handleSubmit(onSubmit)} noValidate>
                 <label htmlFor='title' >Title: </label>
                 <input 
                     {...register("title", {required: "A title is required."})}
@@ -93,14 +94,6 @@ export default function BookEdit() {
                     type="text" 
                     id='genre'
                 />
-                <label htmlFor='owner'>Owner: </label>
-                <input 
-                    {...register("owner", {
-                        required: "Owner is required"
-                    })}
-                    type="text"
-                    id='owner'
-                />
                 <label htmlFor='location'>Location: </label>
                 <input 
                     {...register("location")}
@@ -114,14 +107,15 @@ export default function BookEdit() {
                     id='borrowed_from'
                 />
                 <label htmlFor='comments'>Comments: </label>
-                <input 
+                <textarea 
                     {...register("comments")}
-                    type="text"
                     id='comments'
+                    form='bookeditform'
                 />
                 <button className='submit-btn' type='submit'>Submit</button>
                 <Link to={`/book/${bookId}`}><button type='button' className='cancel-btn'>Cancel</button></Link>
         </form>
+        <DevTool control={control} />
         </div>
     )
 
