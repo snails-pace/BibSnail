@@ -1,0 +1,33 @@
+.books {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 4rem auto;
+    max-width: 100rem;
+}
+
+.book {
+    border-style: none;
+    border-radius: 12px;
+    background-color: var(--card-color);
+    list-style: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition-duration: 0.2s;
+    transition-property: filter, transform;
+
+    a {
+        padding: 2rem;
+        display: block;
+        height: 100%;
+        text-decoration: none;
+        color: black;
+        p {
+            color: var(--banner-color);
+        }
+    }
+}
+
+#booklist-book:hover {
+    filter: brightness(105%);
+    transform: scale(1.05);
+}

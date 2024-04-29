@@ -1,0 +1,50 @@
+#banner {
+    text-align: center;
+
+    color: black;
+    background-color: var(--banner-color);
+    background-image: url("../img/english-library.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    h1 {
+        background-color: rgba(242, 230, 216, 0.8);
+        font-size: 5rem;
+        padding: 0 1rem;
+        margin: 5rem 0;
+        border-radius: 12px;
+        border-style: solid;
+        color: var(--banner-color);
+    }
+}
+
+/* Main navigation */
+nav {
+    background-color: var(--banner-color);
+    color: white;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+
+    li {
+        list-style: none;
+        margin: 1rem;
+        font-size: large;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        padding: 0.2rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+button {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border-style: none;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: auto;
+
+    &:hover {
+        filter: brightness(95%);
+        cursor: pointer;
+    }
+}
+
+.edit-btn {
+    background-color: var(--btn-color);
+
+}
+
+.submit-btn {
+    background-color: var(--btn-color);
+}

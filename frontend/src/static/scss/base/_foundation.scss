@@ -1,0 +1,42 @@
+
+/* Everything has the same box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Images are never taller than parent element */
+img {
+    max-width: 100%;
+}
+
+
+/* Navigation */
+nav {
+
+    ul,
+    ol {
+        list-style: none;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+
+
+/* Table */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+
+    th,
+    td {
+        text-align: left;
+        padding: 0 0.5em 0.5em 0.5em;
+    }
+}

@@ -1,0 +1,22 @@
+.bookform {
+    grid-column: 2 / 3;
+    display: grid;
+
+    label {
+        margin-bottom: 0.4rem;
+        font-size: 1rem;
+    }
+
+    input,
+    textarea {
+        margin-bottom: 1.5rem;
+        border-radius: 1rem;
+        border-style: solid;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    textarea {
+        height: 8rem;
+    }
+}
